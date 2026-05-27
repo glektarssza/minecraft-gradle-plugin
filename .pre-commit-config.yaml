@@ -21,4 +21,4 @@ repos:
         exclude_types: [batch]
       - id: mixed-line-ending
         args: [--fix=crlf]
-        types: [batch]
+        types: [batch, ini]
