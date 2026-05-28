@@ -6,6 +6,11 @@ plugins {
     id('idea')
 }
 
+repositories {
+    gradlePluginPortal()
+    mavenCentral()
+}
+
 dependencies {
     // -- Testing dependencies
     testImplementation("org.junit.jupiter:junit-jupiter:6.1.0")
