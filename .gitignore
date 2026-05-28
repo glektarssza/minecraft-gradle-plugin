@@ -50,4 +50,5 @@ ctags
 
 # Artifacts #
 ## Gradle ##
+bin/
 build/
