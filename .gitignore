@@ -43,3 +43,7 @@ ctags
 # Cache #
 ## CSpell ##
 .cspellcache
+
+# Cache #
+## Gradle ##
+.gradle/
