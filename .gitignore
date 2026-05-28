@@ -47,3 +47,7 @@ ctags
 # Cache #
 ## Gradle ##
 .gradle/
+
+# Artifacts #
+## Gradle ##
+build/
