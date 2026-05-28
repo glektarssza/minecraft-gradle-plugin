@@ -1,9 +1,13 @@
 asexplicit
+buildscript
+diffplug
 ensurepath
+foojay
 generis
 glek
 glektarssza
 hookspath
+importorder
 iregex
 mapfile
 mpre
