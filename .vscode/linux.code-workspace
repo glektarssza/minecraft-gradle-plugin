@@ -122,7 +122,7 @@
         "java.import.gradle.enabled": true,
         "java.import.gradle.java.home": "/usr/lib/jvm/java-25-temurin/",
         "java.import.gradle.offline.enabled": false,
-        "java.import.gradle.version": "8.13",
+        "java.import.gradle.version": "9.5.1",
         "java.import.gradle.wrapper.enabled": true,
         "java.import.maven.enabled": true,
         "java.import.maven.offline.enabled": false,
