@@ -1,0 +1,62 @@
+plugins {
+    id('java-gradle-plugin')
+    id('maven-publish')
+    id('com.diffplug.spotless') version '8.6.0'
+    id('eclipse')
+    id('idea')
+}
+
+dependencies {
+    // -- Testing dependencies
+    testImplementation("org.junit.jupiter:junit-jupiter:6.1.0")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+}
+
+gradlePlugin {
+    plugins {
+        website = 'https://github.com/glektarssza/minecraft-gradle-plugin'
+        vcsUrl = 'https://github.com/glektarssza/minecraft-gradle-plugin.git'
+        create('minecraft-gradle-plugin', {
+            id = 'com.glektarssza.minecraft_gradle'
+            implementationClass = 'com.glektarssza.minecraft_gradle.MinecraftGradlePlugin'
+            displayName = "G'lek's Minecraft Gradle Plugin"
+            description = "A Gradle plugin that provides shared buildscript logic for creating Minecraft mods."
+            tags = ['minecraft', 'modding', 'gaming', 'game-modding', 'games', 'minecraft-modding']
+        })
+        create('minecraft-gradle-conventions-plugin', {
+            id = 'com.glektarssza.minecraft_gradle_conventions'
+            implementationClass = 'com.glektarssza.minecraft_gradle.MinecraftGradleConventionsPlugin'
+            displayName = "G'lek's Minecraft Gradle Plugin"
+            description = "A Gradle plugin that provides shared buildscript logic for creating Minecraft mods and that automatically applies all features."
+            tags = ['minecraft', 'modding', 'gaming', 'game-modding', 'games', 'minecraft-modding']
+        })
+        create('minecraft-gradle-settings-plugin', {
+            id = 'com.glektarssza.minecraft_gradle_settings'
+            implementationClass = 'com.glektarssza.minecraft_gradle.MinecraftGradleSettingsPlugin'
+            displayName = "G'lek's Minecraft Gradle Plugin"
+            description = "A Gradle plugin that provides shared settings logic for creating Minecraft mods."
+            tags = ['minecraft', 'modding', 'gaming', 'game-modding', 'games', 'minecraft-modding']
+        })
+    }
+}
+
+spotless {
+    encoding('UTF-8')
+    format('misc') {
+        target('.gitignore', '.gitattributes', '*.gradle')
+        trimTrailingWhitespace()
+        leadingTabsToSpaces(4)
+        endWithNewline()
+    }
+    java {
+        target("src/*/java/**/*.java")
+        toggleOffOn()
+        forbidWildcardImports()
+        trimTrailingWhitespace()
+        leadingTabsToSpaces(4)
+        endWithNewline()
+        removeUnusedImports()
+        importOrderFile("spotless.importorder")
+        eclipse("4.35").configFile("formatter.xml")
+    }
+}
